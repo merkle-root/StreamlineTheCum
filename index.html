@@ -3,29 +3,29 @@
 <body> 
 
 <style>
-body{
-  background: url("bg.png") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+body {
+    background: url("bg.png") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.center {    margin-left: auto;
+.center {
+    margin-left: auto;
     margin-right: auto;
     text-align: center;
-    display: block; }
-
-
+    display: block;
+}
 </style>
   
 <video class="center" id="myVideo" width="720" height="176" controls>
-  <source src="" type="audio/mp3">
-  Your browser does not support HTML5 video.
+    <source src="" type="audio/mp3">
+    Your browser does not support HTML5 video.
 </video>
+
 <button class="center" style="width:200px;height:30px;" onclick="playFromTimestamp()" type="button">Play from timestamp</button>
 
-<!-- for PSAs-->
 <span class="center" id="message" style="color:white;"></span>
 
 <script>
@@ -39,8 +39,8 @@ function load() {
 }
 
 function playFromTimestamp() {
-  vid.currentTime=Number(getQueryVariable("time"));
-  vid.play();
+    vid.currentTime=Number(getQueryVariable("time"));
+    vid.play();
 }
 
 function getQueryVariable(variable) {
