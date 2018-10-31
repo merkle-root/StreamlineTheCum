@@ -23,7 +23,7 @@ body{
   <source src="" type="audio/mp3">
   Your browser does not support HTML5 video.
 </video>
-<button class="center" style="width:200px;height:30px;" onclick="seekToTimestamp()" type="button">Play from timestamp</button>
+<button class="center" style="width:200px;height:30px;" onclick="playFromTimestamp()" type="button">Play from timestamp</button>
 
 <!-- for PSAs-->
 <span class="center" style="color:white;"></span>
@@ -31,7 +31,7 @@ body{
 <script>
 var vid = document.getElementById("myVideo");
 
-function seekToTimestamp() { 
+function load() { 
     var pod_url = getQueryVariable("url");
     var proxy_url = "https://cors.io/?" + pod_url + "?format=json"
 
@@ -55,7 +55,12 @@ function seekToTimestamp() {
             
         }
     }
-} 
+}
+
+function playFromTimestamp() {
+  vid.currentTime=Number(getQueryVariable("time"));
+  vid.play();
+}
 
 function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
@@ -70,7 +75,7 @@ function getQueryVariable(variable) {
 }
 
 
-window.onload = seekToTimestamp;
+window.onload = load;
 </script> 
 
 </body> 
