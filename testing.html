@@ -37,7 +37,7 @@ var msg = document.getElementById("message");
 function load() {
     var url = getQueryVariable("url");
     vid.setAttribute("src", url);
-    vid.currentTime=Number(getQueryVariable("time"));
+    playFromTimestamp();
 }
 
 function playFromTimestamp() {
