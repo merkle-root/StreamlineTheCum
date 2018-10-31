@@ -19,6 +19,8 @@ body{
 
 </style>
 
+<span class="center" style="color:white;">im fixing it ok</span>
+  
 <video class="center" id="myVideo" width="720" height="176" controls>
   <source src="" type="audio/mp3">
   Your browser does not support HTML5 video.
@@ -26,36 +28,16 @@ body{
 <button class="center" style="width:200px;height:30px;" onclick="playFromTimestamp()" type="button">Play from timestamp</button>
 
 <!-- for PSAs-->
-<span class="center" style="color:white;"></span>
+<span class="center" id="message" style="color:white;"></span>
 
 <script>
 var vid = document.getElementById("myVideo");
+var msg = document.getElementById("message");
 
-function load() { 
-    var pod_url = getQueryVariable("url");
-    //var proxy_url = "https://cors.io/?" + pod_url + "?format=json"
-    var proxy_url = "https://cors-anywhere.herokuapp.com/" + pod_url
-
-    var request = new XMLHttpRequest();
-    request.open('GET', proxy_url, true);
-    request.send(null);
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            var text = request.responseText;
-            var doc = new DOMParser().parseFromString(text, 'text/html');
-            var result = doc.evaluate("/html/head/meta[@property='og:audio']/@content", doc, null, XPathResult.STRING_TYPE, null);
-            var file_url = (result.stringValue);
-            
-            vid.setAttribute("src", file_url);
-            vid.currentTime=Number(getQueryVariable("time"));
-            
-            vid.oncanplay = function() {
-                vid.play();
-            }; 
-            
-            
-        }
-    }
+function load() {
+    var url = getQueryVariable("url");
+    vid.setAttribute("src", url);
+    vid.currentTime=Number(getQueryVariable("time"));
 }
 
 function playFromTimestamp() {
