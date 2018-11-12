@@ -23,8 +23,11 @@ body {
     <source src="" type="audio/mp3">
     Your browser does not support HTML5 video.
 </video>
-
-<button class="center" style="width:200px;height:30px;" onclick="playFromTimestamp()" type="button">Play from timestamp</button>
+<div class="center">
+<button style="width:40px;height:30px;" onclick="shiftTime(-15)" type="button"><<</button>
+<button style="width:200px;height:30px;" onclick="playFromTimestamp()" type="button">Play from timestamp</button>
+<button style="width:40px;height:30px;" onclick="shiftTime(15)" type="button">>></button>
+</div>
 
 <span class="center" id="message" style="color:white;"></span>
 
@@ -41,6 +44,10 @@ function load() {
 function playFromTimestamp() {
     vid.currentTime=Number(getQueryVariable("time"));
     vid.play();
+}
+
+function shiftTime(amount) {
+    vid.currentTime = vid.currentTime + amount;
 }
 
 function getQueryVariable(variable) {
