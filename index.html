@@ -21,8 +21,9 @@ body {
     display: block;
 }
 </style>
-  
-<video class="center" id="myVideo" width="720" height="176" controls>
+
+<span class="center" id="title" style="color:white;"></span>
+<video class="center" id="video" width="720" height="176" controls>
     <source src="" type="audio/mp3">
     Your browser does not support HTML5 video.
 </video>
@@ -35,12 +36,14 @@ body {
 <span class="center" id="message" style="color:white;"></span>
 
 <script>
-var vid = document.getElementById("myVideo");
+var title = document.getElementById("title");
+var vid = document.getElementById("video");
 var msg = document.getElementById("message");
 
 function load() {
     var url = getQueryVariable("url");
     vid.setAttribute("src", url);
+    title.textContent = getQueryVariable("title");
     playFromTimestamp();
 }
 
