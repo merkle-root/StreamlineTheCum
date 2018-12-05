@@ -20,9 +20,14 @@ body {
     text-align: center;
     display: block;
 }
+    
+.title {
+font: bold 30px arial, sans-serif;
+color: gray;
+}
 </style>
 
-<span class="center" id="title" style="color:white;"></span>
+<span class="center title" id="title"></span>
 <video class="center" id="video" width="720" height="176" controls>
     <source src="" type="audio/mp3">
     Your browser does not support HTML5 video.
@@ -33,12 +38,10 @@ body {
 <button style="width:40px;height:30px;" onclick="shiftTime(15)" type="button">>></button>
 </div>
 
-<span class="center" id="message" style="color:white;"></span>
 
 <script>
 var title = document.getElementById("title");
 var vid = document.getElementById("video");
-var msg = document.getElementById("message");
 
 function load() {
     var url = getQueryVariable("url");
