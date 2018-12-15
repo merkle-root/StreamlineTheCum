@@ -16,6 +16,7 @@ body {
 }
 
 .center {
+    padding-top: 100px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -28,15 +29,17 @@ color: gray;
 }
 </style>
 
-<span class="center title" id="title"></span>
-<video class="center" id="video" width="720" height="176" controls>
-    <source src="" type="audio/mp3">
-    Your browser does not support HTML5 video.
-</video>
 <div class="center">
-<button style="width:40px;height:30px;" onclick="shiftTime(-15)" type="button"><<</button>
-<button style="width:200px;height:30px;" onclick="playFromTimestamp()" type="button">Play from timestamp</button>
-<button style="width:40px;height:30px;" onclick="shiftTime(15)" type="button">>></button>
+    <span class="title" id="title"></span>
+    <video id="video" width="720" height="176" controls>
+        <source src="" type="audio/mp3">
+        Your browser does not support HTML5 video.
+    </video>
+    <div >
+        <button style="width:40px;height:30px;" onclick="shiftTime(-15)" type="button"><<</button>
+        <button style="width:200px;height:30px;" onclick="playFromTimestamp()" type="button">Play from timestamp</button>
+        <button style="width:40px;height:30px;" onclick="shiftTime(15)" type="button">>></button>
+    </div>
 </div>
 
 
