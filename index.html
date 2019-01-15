@@ -56,8 +56,14 @@ var vid = document.getElementById("video");
 function load() {
     var url = getQueryVariable("url");
     vid.setAttribute("src", url);
+    
     title.textContent = getQueryVariable("title");
     playFromTimestamp();
+    
+    // analytics
+    var http = new XMLHttpRequest();
+    http.open("GET", "https://docs.google.com/forms/d/e/1FAIpQLSfVwno2yrs5sxkWyNInPT0CvTHEY9DtSxfuJsgqNTjTj49-kA/formResponse?usp=pp_url&entry.723893007="+ encodeURIComponent(getQueryVariable("title")) +"&submit=Submit");
+    http.send();
 }
 
 function playFromTimestamp() {
