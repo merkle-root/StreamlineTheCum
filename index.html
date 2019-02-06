@@ -61,7 +61,7 @@ function load() {
     playFromTimestamp();
     
     // analytics
-    if (getQueryVariable("noanalytics") == null) {
+    if (getQueryVariable("na") == null) { // na = no analytics
         var http = new XMLHttpRequest();
         http.open("GET", "https://docs.google.com/forms/d/e/1FAIpQLSfVwno2yrs5sxkWyNInPT0CvTHEY9DtSxfuJsgqNTjTj49-kA/formResponse?usp=pp_url&entry.723893007="+ encodeURIComponent(getQueryVariable("title")) +"&submit=Submit");
         http.send();
